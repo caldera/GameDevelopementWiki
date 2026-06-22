@@ -15,8 +15,8 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://your-docusaurus-site.example.com',
-  baseUrl: '/',
+  url: 'https://caldera.github.io',
+  baseUrl: '/GameDevelopementWiki/',
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
