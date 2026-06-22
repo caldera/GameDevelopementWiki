@@ -76,10 +76,11 @@ Engine/Source/
 | 6 | [NNE 深度分析](nne-deep-dive) | NNE 架构全解、推理流程、LLM 集成可行性、实战示例 |
 | 7 | [NNE 绑怪实战](nne-monster-ai) | 怪物 AI 的神经网络推理绑怪方案、异步推理代码、Batch 优化 |
 | 8 | [Mass ECS 深度分析](mass-deep-dive) | ECS 架构、Fragment/Tag/Processor、API 源码、万怪实战、ISM 渲染 |
-| 9 | [游戏世界 World & Level](world-level) | UWorld 架构、ULevel、Level Streaming、World Partition、Tick 循环 |
-| 10 | [AActor](actor) | Actor 生命周期、Tick、网络复制、Spawn 参数 |
-| 11 | [UActorComponent](component) | 组件层级树、SceneComponent、PrimitiveComponent、模式示例 |
-| 12 | [Gameplay 框架](gameplay-framework) | GameMode/PC/Pawn/Character/GS/PS/HUD 全流程 |
+| 9 | [Iris 复制系统深度分析](iris-deep-dive) | MMO 复制引擎、FNetRefHandle、过滤/优先级/增量压缩、实战配置 |
+| 10 | [游戏世界 World & Level](world-level) | UWorld 架构、ULevel、Level Streaming、World Partition、Tick 循环 |
+| 11 | [AActor](actor) | Actor 生命周期、Tick、网络复制、Spawn 参数 |
+| 12 | [UActorComponent](component) | 组件层级树、SceneComponent、PrimitiveComponent、模式示例 |
+| 13 | [Gameplay 框架](gameplay-framework) | GameMode/PC/Pawn/Character/GS/PS/HUD 全流程 |
 
 ---
 
