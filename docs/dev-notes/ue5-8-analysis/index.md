@@ -74,10 +74,11 @@ Engine/Source/
 | 4 | [网络复制 Iris & StateStream](networking) | Iris 复制系统、StateStream 插值、Net/Core |
 | 5 | [新特性模块](new-features) | NNE 神经网络、Mass ECS、Verse、Chaos、AutoRTFM |
 | 6 | [NNE 深度分析](nne-deep-dive) | NNE 架构全解、推理流程、LLM 集成可行性、实战示例 |
-| 7 | [游戏世界 World & Level](world-level) | UWorld 架构、ULevel、Level Streaming、World Partition、Tick 循环 |
-| 8 | [AActor](actor) | Actor 生命周期、Tick、网络复制、Spawn 参数 |
-| 9 | [UActorComponent](component) | 组件层级树、SceneComponent、PrimitiveComponent、模式示例 |
-| 10 | [Gameplay 框架](gameplay-framework) | GameMode/PC/Pawn/Character/GS/PS/HUD 全流程 |
+| 7 | [NNE 绑怪实战](nne-monster-ai) | 怪物 AI 的神经网络推理绑怪方案、异步推理代码、Batch 优化 |
+| 8 | [游戏世界 World & Level](world-level) | UWorld 架构、ULevel、Level Streaming、World Partition、Tick 循环 |
+| 9 | [AActor](actor) | Actor 生命周期、Tick、网络复制、Spawn 参数 |
+| 10 | [UActorComponent](component) | 组件层级树、SceneComponent、PrimitiveComponent、模式示例 |
+| 11 | [Gameplay 框架](gameplay-framework) | GameMode/PC/Pawn/Character/GS/PS/HUD 全流程 |
 
 ---
 
