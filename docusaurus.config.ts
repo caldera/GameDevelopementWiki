@@ -64,11 +64,11 @@ const config: Config = {
       },
       items: [
         {to: '/', label: '首页', position: 'left'},
-        {to: '/category/程序开发笔记', label: '开发笔记', position: 'left'},
-        {to: '/category/ue5-踩坑记录', label: 'UE5 踩坑', position: 'left'},
-        {to: '/category/游戏世界观', label: '世界观', position: 'left'},
-        {to: '/category/项目管理', label: '项目管理', position: 'left'},
-        {to: '/category/大型网游开发', label: 'MMO 开发', position: 'left'},
+        {to: '/dev-notes/', label: '开发笔记', position: 'left'},
+        {to: '/ue5-caveats/', label: 'UE5 踩坑', position: 'left'},
+        {to: '/world-building/', label: '世界观', position: 'left'},
+        {to: '/project-mgmt/', label: '项目管理', position: 'left'},
+        {to: '/mmo-dev/', label: 'MMO 开发', position: 'left'},
         {to: '/blog', label: '开发日志', position: 'left'},
       ],
     },
@@ -78,11 +78,11 @@ const config: Config = {
         {
           title: '知识库',
           items: [
-            {label: '程序开发笔记', to: '/category/程序开发笔记'},
-            {label: 'UE5 踩坑记录', to: '/category/ue5-踩坑记录'},
-            {label: '游戏世界观', to: '/category/游戏世界观'},
-            {label: '项目管理', to: '/category/项目管理'},
-            {label: '大型网游开发', to: '/category/大型网游开发'},
+            {label: '程序开发笔记', to: '/dev-notes/'},
+            {label: 'UE5 踩坑记录', to: '/ue5-caveats/'},
+            {label: '游戏世界观', to: '/world-building/'},
+            {label: '项目管理', to: '/project-mgmt/'},
+            {label: '大型网游开发', to: '/mmo-dev/'},
           ],
         },
         {
