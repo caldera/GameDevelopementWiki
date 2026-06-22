@@ -20,6 +20,7 @@ sidebar_position: 1
 | 6 | [代码注释](/dev-notes/cpp-style-guide/comments) | 文件/类/函数/变量注释、实现注释、TODO 注释 |
 | 7 | [格式](/dev-notes/cpp-style-guide/formatting) | 行长度、缩进、函数声明/定义/调用、条件/循环/switch、指针引用、布尔表达式、类格式、空白 |
 | 8 | [规则之例外](/dev-notes/cpp-style-guide/exceptions) | 现有不一致代码、Windows 代码的特殊处理 |
+| 9 | [深度话题](/dev-notes/cpp-style-guide/deep-dive) | Stream vs Printf、无符号陷阱、RAII、匈牙利命名法、宏高级用法、MSVC 封装 |
 
 ## 核心理念
 

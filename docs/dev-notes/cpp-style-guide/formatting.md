@@ -25,8 +25,6 @@ sidebar_position: 8
 
 ## 4. 函数声明与定义
 
-返回类型和函数名在同一行，合适的话，参数也放在同一行：
-
 ```cpp
 ReturnType ClassName::FunctionName(Type par_name1, Type par_name2) {
   DoSomething();
@@ -34,28 +32,16 @@ ReturnType ClassName::FunctionName(Type par_name1, Type par_name2) {
 }
 ```
 
-如果一行放不下所有参数：
-
-```cpp
-ReturnType ClassName::ReallyLongFunctionName(Type par_name1,
-                                             Type par_name2,
-                                             Type par_name3) {
-  DoSomething();
-  ...
-}
-```
-
 **要点：**
 - 返回值总是和函数名在同一行
-- 左圆括号总是和函数名在同一行
-- 函数名和左圆括号间**没有空格**
+- 左圆括号总是和函数名在同一行，之间**没有空格**
 - 圆括号与参数间**没有空格**
 - 左大括号总是在最后一个参数同一行的末尾处
 - 右大括号总是单独位于函数最后一行
-- 缺省缩进为 2 个空格
-- 独立封装的参数保持 4 个空格的缩进
+- 缺省缩进为 2 个空格；独立封装的参数保持 4 个空格缩进
+- 如果函数为 `const`，`const` 与最后一个参数在同一行
 
-**未使用的参数：** 在函数定义处将参数名注释起来：
+**未使用的参数：** 将参数名注释起来：
 
 ```cpp
 void Circle::Rotate(double /*radians*/) {}
@@ -63,16 +49,15 @@ void Circle::Rotate(double /*radians*/) {}
 
 ## 5. 函数调用
 
-尽量放在同一行，否则将实参封装在圆括号中：
+尽量放在同一行，否则将实参对齐：
 
 ```cpp
 bool retval = DoSomething(argument1, argument2, argument3);
 
-// 多行时对齐
 bool retval = DoSomething(averyveryveryverylongargument1,
                           argument2, argument3);
 
-// 参数较多时每行一个参数
+// 参数较多时每行一个
 bool retval = DoSomething(argument1,
                           argument2,
                           argument3,
@@ -81,72 +66,62 @@ bool retval = DoSomething(argument1,
 
 ## 6. 条件语句
 
-最常见的是在圆括号和条件之间没有空格：
+更提倡不在圆括号中添加空格，关键字 `else` 另起一行。
 
 ```cpp
-if (condition) {    // 好
+if (condition) {    // 圆括号内无空格
   ...
 } else {
   ...
 }
 ```
 
-- 所有情况下 `if` 和左圆括号间有个空格
-- 右圆括号和左大括号间有个空格
-- 单行语句可以在没有 `else` 子句时写在同一行：
-
-```cpp
-if (x == kFoo) return new Foo();
-```
-
-- 如果语句中哪一分支使用了大括号的话，其他部分也必须使用
+**规则：**
+- `if` 和左圆括号间**有一个空格**
+- 右圆括号和左大括号间**有一个空格**
+- 单行语句（无 `else` 时）可以写在同一行
+- **如果任一分支使用了大括号，其他所有分支也必须使用**
 
 ## 7. 循环和开关选择语句
 
 ```cpp
 switch (var) {
-  case 0: {
-    ...
-    break;
-  }
-  case 1: {
-    ...
+  case 0: {          // 2 空格缩进
+    ...              // 4 空格缩进
     break;
   }
   default: {
-    assert(false);
+    assert(false);   // 总包含 default
   }
 }
 ```
 
-空循环体应使用 `{}` 或 `continue`，而不是一个简单的分号：
+**空循环体：** 使用 `{}` 或 `continue`，而不是单个分号：
 
 ```cpp
 while (condition) {}         // 好
 while (condition) continue;  // 好
-while (condition);           // 坏——看起来像 do/while 的一部分
+while (condition);           // 坏——看起来像 do/while
 ```
 
 ## 8. 指针和引用表达式
 
-句点 `.` 或箭头 `->` 前后不要有空格。指针/地址操作符 `*`、`&` 后不要有空格。
+句点 `.` 或箭头 `->` 前后不要有空格。指针操作符 `*`、`&` 后不要有空格。
 
 ```cpp
-x = *p;
-p = &x;
-x = r.y;
-x = r->y;
+x = *p;  p = &x;
+x = r.y;  x = r->y;
 
-char *c;            // 好：星号靠近变量
-const string &str;  // 好
-
+char *c;            // 星号靠近变量
 char* c;            // 也可接受：星号靠近类型
-const string& str;  // 也可接受
+char * c;           // 坏——两边都有空格
 ```
+
+**关键原则：** 同一文件中保持一致。
 
 ## 9. 布尔表达式
 
-如果一个布尔表达式超过标准行宽，逻辑与 `&&` 操作符总位于行尾：
+逻辑与 `&&` 操作符总位于行尾：
 
 ```cpp
 if (this_one_thing > this_other_thing &&
@@ -167,18 +142,18 @@ return(x);        // 坏
 
 ## 11. 变量及数组初始化
 
-下面的形式都是正确的：
+以下形式都正确：
 
 ```cpp
-int x = 3;
-int x(3);
+int x = 3;                // = 风格
+int x(3);                 // 构造函数风格
 string name("Some Name");
 string name = "Some Name";
 ```
 
 ## 12. 预处理指令
 
-预处理指令**不要缩进**，从行首开始：
+预处理指令**不要缩进**，即使位于代码块中：
 
 ```cpp
   if (lopsided_score) {
@@ -193,7 +168,7 @@ string name = "Some Name";
 
 ```cpp
 class MyClass : public OtherClass {
- public:           // 注意 1 个空格缩进！
+ public:           // 1 个空格缩进
   MyClass();
   explicit MyClass(int var);
   ~MyClass() {}
@@ -210,18 +185,19 @@ class MyClass : public OtherClass {
 };
 ```
 
-- `public:`、`protected:`、`private:` 要缩进 1 个空格
-- 除第一个关键词（一般是 `public:`）外，其他关键词前空一行
-- `public` 放在最前面，然后是 `protected` 和 `private`
+**要点：**
+- 基类名尽量与子类名在同一行（80 列限制内）
+- `public:` / `protected:` / `private:` 缩进 **1 个空格**
+- 各访问控制块之间空一行（类较小可以不空）
+- `public` 在前，`protected` 在中，`private` 在后
 
 ## 14. 初始化列表
 
 ```cpp
-// 全部放在一行：
-MyClass::MyClass(int var) : some_var_(var), some_other_var_(var + 1) {
-}
+// 一行内：
+MyClass::MyClass(int var) : some_var_(var), some_other_var_(var + 1) {}
 
-// 多行时，4 格缩进：
+// 多行时 4 格缩进：
 MyClass::MyClass(int var)
     : some_var_(var),
       some_other_var_(var + 1) {
@@ -236,7 +212,7 @@ MyClass::MyClass(int var)
 ```cpp
 namespace {
 
-void foo() {    // 正确——命名空间内不额外缩进
+void foo() {    // 不额外缩进
   ...
 }
 
@@ -245,30 +221,53 @@ void foo() {    // 正确——命名空间内不额外缩进
 
 ## 16. 水平空白
 
-- 赋值运算符总有空格：`x = 0;`
-- 一元运算符和其参数间没有空格：`x = -5;` `++x;`
-- 二元运算符通常有空格：`v = w * x + y / z;`
-- 圆括号内没有空格：`if (condition)` `v = w * (x + z);`
-- 不要添加多余的空格
+**循环和条件：**
+```cpp
+if (b) {                    // 关键词后空格
+} else {
+while (test) {}             // 圆括号内无空格
+for (int i = 0; i < 5; ++i) {
+switch (i) {
+  case 1:  ...              // case 冒号前无空格，后有空格的代码
+  case 2: break;            // 冒号后有代码时加空格
+```
+
+**操作符：**
+```cpp
+x = 0;                          // 赋值符两侧空格
+x = -5;                         // 一元符与参数无空格
+++x;
+if (x && !y) ...
+v = w * x + y / z;              // 二元符两侧通常有空格
+```
+
+**模板和转换：**
+```cpp
+vector<string> x;               // 尖括号内无空格
+y = static_cast<char*>(x);
+set<list<string> > x;            // > > 间需要空格
+```
+
+**不要添加多余的空格。**
 
 ## 17. 垂直空白
 
-垂直空白越少越好。
+> 垂直空白越少越好。同一屏可以显示越多的代码，程序的控制流就越容易理解。
 
-- 不要在函数定义之间空超过 2 行
+- 函数定义之间不超过 2 行空行
 - 函数体头、尾不要有空行
 - 代码块头、尾不要有空行
-- `if-else` 块之间空一行还可以接受
-
-> 基本原则：同一屏可以显示越多的代码，程序的控制流就越容易理解。
+- `if-else` 块之间空一行可以接受
 
 ## 小结
 
-1. 行宽原则上不超过 80 列
-2. 尽量不使用非 ASCII 字符
+1. 行宽不超过 80 列
+2. 尽量不使用非 ASCII 字符，使用 UTF-8
 3. 使用 2 空格缩进，不用 Tab
-4. 左大括号置于行尾，右大括号独立成行
-5. `.` / `->` 操作符前后不留空格，`*` / `&` 不要前后都留
-6. 预处理指令/命名空间不使用额外缩进
-7. `return` 不要加 `()`
+4. 左大括号行尾，右大括号独立成行
+5. `.` / `->` 前后不留空格，`*` / `&` 靠一边
+6. 预处理指令/命名空间不缩进
+7. `return` 不加 `()`
 8. 水平/垂直留白不要滥用
+9. 初始化用 `=` 或 `()` 都行，保持统一
+10. 函数定义中的未使用参数用 `/* */` 注释掉

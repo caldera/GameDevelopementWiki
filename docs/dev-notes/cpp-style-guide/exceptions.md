@@ -18,11 +18,11 @@ Windows 程序员有自己的编码习惯。如果你一直使用 Windows 编码
 
 ### 应遵守的规则
 
-1. **不要使用匈牙利命名法**，使用 Google 命名约定，包括对源文件使用 `.cc` 扩展名
-2. Windows 定义了 Windows API 类型（`DWORD`、`HANDLE` 等），在调用 Windows API 时完全可以接受，但尽量使用原来的 C++ 类型
+1. **不要使用匈牙利命名法**（Hungarian notation，如定义整型变量为 `iNum`），使用 Google 命名约定，包括对源文件使用 `.cc` 扩展名（而非 `.cpp`）
+2. Windows 定义了 Windows API 类型（`DWORD`、`HANDLE` 等），在调用 Windows API 时完全可以接受甚至鼓励，但尽量使用原来的 C++ 类型。例如使用 `const TCHAR *` 而不是 `LPCTSTR`
 3. 使用 Microsoft Visual C++ 编译时，将警告级别设置为 3 或更高，并将所有 warnings 当作 errors 处理
-4. **不要使用 `#pragma once`** 作为包含保护，使用 C++ 标准包含保护
-5. 除非万不得已，否则不使用任何非标准扩展（如 `#pragma` 和 `__declspec`），允许使用 `__declspec(dllimport)` 和 `__declspec(dllexport)`，必须通过宏封装
+4. **不要使用 `#pragma once`** 作为包含保护，使用 C++ 标准 `#ifndef` / `#define` / `#endif` 包含保护，且文件路径包含到项目树顶层
+5. 除非万不得已，否则不使用任何非标准扩展（如 `#pragma` 和 `__declspec`）。`__declspec(dllimport)` 和 `__declspec(dllexport)` 允许使用，但**必须通过 `DLLIMPORT` 和 `DLLEXPORT` 等宏封装**，以便其他人在共享时容易放弃这些扩展
 
 ### 偶尔可以不遵守的规则
 
