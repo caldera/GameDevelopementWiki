@@ -1,6 +1,10 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import fs from 'fs';
+import path from 'path';
+
+const WIKI_VERSION = fs.readFileSync(path.resolve(__dirname, 'VERSION'), 'utf-8').trim();
 
 const config: Config = {
   title: 'Caldera Game Dev Wiki',
@@ -57,7 +61,7 @@ const config: Config = {
       defaultMode: 'dark',
     },
     navbar: {
-      title: 'Caldera Dev Wiki',
+      title: `Caldera Dev Wiki v${WIKI_VERSION}`,
       logo: {
         alt: 'Caldera Wiki',
         src: 'img/logo.svg',
@@ -93,7 +97,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Caldera. Built with Docusaurus 🐉.`,
+      copyright: `v${WIKI_VERSION} · Copyright © ${new Date().getFullYear()} Caldera · Built with Docusaurus 🐉`,
     },
     prism: {
       theme: prismThemes.github,

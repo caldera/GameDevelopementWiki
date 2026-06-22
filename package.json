@@ -4,15 +4,19 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start",
+    "prebuild": "node scripts/verify-version.js",
     "build": "docusaurus build",
+    "start": "docusaurus start",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "version": "node scripts/bump-version.js",
+    "verify-version": "node scripts/verify-version.js",
+    "release": "node scripts/bump-version.js patch && git add -A && git commit -m \"chore: bump version\""
   },
   "dependencies": {
     "@docusaurus/core": "3.10.1",
