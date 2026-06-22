@@ -60,6 +60,20 @@ Now, I am 20 years old. How old is my partner? Let's think step by step.
 
 > The magic phrase: **"Let's think step by step."**
 
+### CoT 的关键原则
+
+> For CoT prompting, **putting the answer after the reasoning is required** because the generation of the reasoning changes the tokens that the model gets when it predicts the final answer.
+
+也就是说：推理在前，答案在后。推理步骤的生成会改变模型预测最终答案时看到的 tokens，所以必须先输出推理过程，再给出结论。
+
+> With CoT and self-consistency you need to be able to extract the final answer from your prompt, separated from the reasoning.
+
+**实践上需要能从输出中分离提取最终答案**，与推理过程分开。这通常意味着：答案在最后一行，或使用特定格式标记。
+
+> For CoT prompting, set the temperature to 0. Chain of thought prompting is based on **greedy decoding**, predicting the next word in a sequence based on the highest probability. Generally speaking, when using reasoning to come up with the final answer, there's likely one single correct answer.
+
+CoT 的温度应始终设为 **0**，因为推理场景通常只有一个正确答案，不需要随机性。
+
 ### Few-shot CoT 示例
 
 提供带有推理链的示例，引导模型按照类似方式思考：

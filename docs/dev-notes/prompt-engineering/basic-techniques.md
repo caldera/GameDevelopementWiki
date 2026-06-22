@@ -31,6 +31,12 @@ Sentiment:
 
 > When zero-shot doesn't work, you can provide demonstrations or examples in the prompt, which leads to "one-shot" and "few-shot" prompting.
 
+**Zero-shot 的失败模式：** 如果任务需要特定输出格式、需要遵循特定模式、或涉及复杂的推理/分类，零样本往往不够。这时需要 one-shot 或 few-shot。
+
+> The model temperature should be set to a low number, since no creativity is needed. Use the model's default top-K and top-P values, which effectively disable both settings.
+
+**White paper 特别提醒：** 白皮书中所有基础示例均使用 `gemini-pro` 的默认 top-K 和 top-P（相当于不启用采样限制），Temperature 设为 0.1。
+
 ## One-shot & Few-shot（单样本/少样本提示）
 
 提供示例帮助模型理解任务。**One-shot** 提供一个示例，**Few-shot** 提供多个示例，展示模型需要遵循的模式。
@@ -81,6 +87,16 @@ JSON Response:
 | **Role Prompt** | 为模型分配特定的角色或身份 | "frames the model's output style and voice" |
 
 ### System Prompt 示例：限制输出格式
+
+> System prompts can also be really useful for **safety and toxicity**. To control the output, simply add an additional line to your prompt like: 'You should be respectful in your answer.'
+
+通过在 System Prompt 中添加安全指令，可以有效过滤有害或偏见内容。
+
+### System Prompt 与抑制幻觉
+
+> By prompting for a JSON format it forces the model to create a structure and limit hallucinations.
+
+要求返回 JSON 等结构化格式不仅能方便下游处理，更重要的是它**强迫模型生成有结构的内容**，从而减少幻觉。
 
 ```
 Classify movie reviews as positive, neutral or negative. Only

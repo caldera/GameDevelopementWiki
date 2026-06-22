@@ -1,0 +1,34 @@
+{
+  "numpages": 65,
+  "numrender": 65,
+  "info": {
+    "PDFFormatVersion": "1.7",
+    "IsAcroFormPresent": false,
+    "IsXFAPresent": false,
+    "Creator": "Adobe InDesign 20.0 (Macintosh)",
+    "Producer": "Adobe PDF Library 17.0",
+    "CreationDate": "D:20241031135257-06'00'",
+    "ModDate": "D:20241031135302-06'00'",
+    "Trapped": {
+      "name": "False"
+    }
+  },
+  "version": "1.10.100",
+  "metadata": {
+    "_metadata": {
+      "xmp:createdate": "2024-10-31T13:52:57-06:00",
+      "xmp:metadatadate": "2024-10-31T13:53:02-06:00",
+      "xmp:modifydate": "2024-10-31T13:53:02-06:00",
+      "xmp:creatortool": "Adobe InDesign 20.0 (Macintosh)",
+      "xmpmm:instanceid": "uuid:1d4a6c28-5bc3-e545-905c-4992cd665093",
+      "xmpmm:originaldocumentid": "xmp.did:ed4482ce-5b28-4675-9403-ce4af61a07c3",
+      "xmpmm:documentid": "xmp.id:2105c503-d94f-4643-9045-6ab93fa0a3aa",
+      "xmpmm:renditionclass": "proof:pdf",
+      "xmpmm:derivedfrom": "xmp.iid:1e61b039-b99e-44a3-b128-aef3ac871470xmp.did:0fe2ab9f-5969-4fe1-9c1e-44086a118fd7xmp.did:ed4482ce-5b28-4675-9403-ce4af61a07c3default",
+      "xmpmm:history": "convertedfrom application/x-indesign to application/pdfAdobe InDesign 20.0 (Macintosh)/2024-10-31T13:52:57-06:00",
+      "dc:format": "application/pdf",
+      "pdf:producer": "Adobe PDF Library 17.0",
+      "pdf:trapped": "False"
+    }
+  }
+}
