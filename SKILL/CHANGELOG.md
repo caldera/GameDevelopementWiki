@@ -72,3 +72,9 @@
 ### v0.4.0 - Iris 复制系统深度分析 (2026-06-22)
 - 新增 ue5-8-analysis/iris-deep-dive: Iris 架构全解、MMO 网格过滤、优先级/增量压缩/实战配置
 - 来源: UE 5.8 引擎源码 Engine/Source/Runtime/Net/Iris/
+
+### v0.5.0 - AutoRTFM / Verse / StateStream 深度分析 (2026-06-22)
+- 新增 ue5-8-analysis/autortfm-deep-dive: Open/Closed 双模式编译、事务生命周期、Hazards 准则
+- 新增 ue5-8-analysis/verse-deep-dive: 编译器架构、Solaris VM、UE 集成
+- 新增 ue5-8-analysis/statestream-deep-dive: IStateStream 插值架构、Lane 机制、Transform 流
+- 来源: UE 5.8 引擎源码 Engine/Source/Runtime/AutoRTFM/, VerseCompiler/, Solaris/, StateStream/
