@@ -18,3 +18,4 @@ tags: [game-design, analysis]
 - [角色差异化深度分析](./vampire-survivors-characters)
 - [时间压力曲线深度分析](./vampire-survivors-time-curve)
 - [宝箱与仪式感深度分析](./vampire-survivors-chest)
+- [支撑底层六大系统深度分析](./vampire-survivors-six-systems)

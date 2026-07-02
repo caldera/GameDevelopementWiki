@@ -16,6 +16,7 @@
 - 新增 `docs/game-design-analysis/vampire-survivors-characters.md`：角色差异化深度分析（设计模板、207 角色分工、组合多样性）
 - 新增 `docs/game-design-analysis/vampire-survivors-time-curve.md`：时间压力曲线深度分析（四阶段节奏、核心事件时间线、压力与成长同步）
 - 新增 `docs/game-design-analysis/vampire-survivors-chest.md`：宝箱与仪式感深度分析（五种宝箱类型、Luck 品质联动、音效系统、走位决策）
+- 新增 `docs/game-design-analysis/vampire-survivors-six-systems.md`：支撑底层六大系统深度分析（冷却数值/自动瞄准 12 种弹道/经验宝石 400 合并/升级暂停保护/击退协作/Magnet 不吸宝箱的设计意图）
 - VERSION 0.7.2 → 0.8.0
 
 ### v0.7.2 — UE6 路线图分析：蓝图去向（2026-06-23）
