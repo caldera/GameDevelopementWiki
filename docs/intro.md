@@ -35,4 +35,4 @@ sidebar_position: 1
 
 ---
 
-*用 Docusaurus 构建 · Git 驱动 · Markdown 编写*
+> **v0.8.0** · 用 Docusaurus 构建 · Git 驱动 · Markdown 编写
