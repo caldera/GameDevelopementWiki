@@ -20,6 +20,13 @@ sidebar_position: 1
 | [大型网游开发](/mmo-dev/) | 网络同步、服务器架构、Replication、性能优化 |
 | [游戏设计分析](/game-design-analysis/) | 优秀游戏的设计拆解与玩法提炼 |
 
+### 🧛 最新：Vampire Survivors 设计深挖
+
+| 文章 | 说明 |
+|------|------|
+| [Vampire Survivors 玩法拆解与设计分析](/game-design-analysis/vampire-survivors) | 总览：7 大核心设计机制全览 |
+| [极简操作 + 自动攻击深度分析](/game-design-analysis/vampire-survivors-minimal-controls) | 为什么玩家只能动方向键却玩不腻 |
+
 ## 🚀 快速开始
 
 - 浏览侧边栏的各个分区
