@@ -5,6 +5,15 @@
 
 ---
 
+### v0.10.0 — 升级决策树重写 + 六个部分深入分析（2026-07-02）
+- 重写 `vampire-survivors-roguelite-decision.md`：从 ~5,000 字扩展到 ~11,400 字
+  - 整体流程：精确到每级的 XP 曲线、Growth 门槛爆发机制完整解读
+  - Rarity 权重：8,130:1,370 池子比例、Rarity 1→100 全概率表、Victory Sword 超稀有及 Pentagram 特殊递减
+  - 选择策略：Skip/Reroll/Banish/Seal 的数学价值和时机、池子净化的影响
+  - Luck 深层影响：4 个维度的公式（拥有物品偏向的偶/奇交替、第四选项阈值表、宝箱/特效影响）
+  - 决策树复杂性与重量：决策密度分析、与 Slay the Spire 对比、池子权重对决策的影响
+- VERSION 0.9.0 → 0.10.0
+
 ### v0.9.0 — 进化篇重写 + 四个进化类型深入分析（2026-07-02）
 - 重写 `vampire-survivors-evolution.md`：从 ~5,300 字扩展到 ~8,600 字
   - Evolution：完整 26 行进化对照表、被动道具消耗规则、Bracelet 特殊进化、多重进化宝箱
