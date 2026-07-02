@@ -18,6 +18,7 @@ sidebar_position: 1
 | [游戏世界观](/world-building/) | 剧情设定、势力阵营、地理地图、角色档案 |
 | [项目管理](/project-mgmt/) | Sprint 流程、里程碑规划、会议记录 |
 | [大型网游开发](/mmo-dev/) | 网络同步、服务器架构、Replication、性能优化 |
+| [游戏设计分析](/game-design-analysis/) | 优秀游戏的设计拆解与玩法提炼 |
 
 ## 🚀 快速开始
 
