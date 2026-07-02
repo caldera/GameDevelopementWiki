@@ -384,3 +384,53 @@ Seal 鏄湪**鍗囩骇鑿滃崟澶?*鐨勬案涔呮睜瀛愮鐞嗭細
 3. 灏佹帀"鍓嶆湡鎷垮埌浼氬崱妲?鐨勬鍣?```
 
 ---
+
+## 鍏€並ey Takeaways 娣卞害鍒嗘瀽
+
+> 鏈妭灏嗗叚鏉℃牳蹇冪粨璁洪€愪竴灞曞紑涓哄畬鏁寸殑瀛愮珷鑺傦紝浠庢暟瀛︺€佸績鐞嗗鍜岃璁″摬瀛︿笁涓搴︽繁鍏ュ垎鏋愩€?
+---
+
+### 6.1 馃幇 Rarity 1 鈥?瓒呯█缂洪┍鍔ㄧ殑鍙嶅娓哥帺鍔ㄦ満
+
+**涓€鍙ヨ瘽**锛歊arity 1 鐨勬鍣ㄥ嚭鐜版鐜囦粎 0.011%锛屾瘡娆＄湅鍒伴兘鍍忎腑褰╃エ鈥斺€旂█缂烘劅鏈韩灏辨槸閲嶇帺椹卞姩鍔涖€?
+#### 6.1.1 鏁板灞傞潰
+
+鍦?8,130 鐨勬鍣ㄦ€绘潈閲嶄腑锛孯arity 1 鎰忓懗鐫€锛?
+```
+姣忔鍗囩骇鐪嬪埌瀹冪殑姒傜巼 = 1 / 8,130 鈮?0.0123%
+
+涓€灞€ 60 娆″崌绾т腑锛岃嚦灏戠湅鍒颁竴娆＄殑姒傜巼 鈮?1 - (1 - 0.000123)^60 鈮?0.74%
+
+涔熷氨鏄锛氬钩鍧囬渶瑕?135 灞€鎵嶈兘鐪嬪埌涓€娆?Rarity 1 姝﹀櫒
+
+鍗充娇鐪嬪埌浜嗭紝浣犺繕瑕侀潰瀵?3-4 涓€夐」涓殑绔炰簤
+鈫?鏈€缁堥€夊埌瀹冪殑姒傜巼鏇翠綆
+```
+
+#### 6.1.2 蹇冪悊瀛﹀眰闈?
+杩欐槸**鍙彉濂栧姳锛圴ariable Reward锛?* 鍦ㄦ父鎴忚璁′腑鐨勭粡鍏稿簲鐢ㄢ€斺€斾笌鑰佽檸鏈哄悓婧愶細
+
+```
+鍥哄畾濂栧姳锛氭瘡娆″崌绾ч兘鑳芥嬁鍒版煇鐗?鈫?涔犱互涓哄父锛屾病鏈夋儕鍠?瓒呬綆姒傜巼濂栧姳锛氬嚑涔庝笉鍙兘鍑虹幇 鈫?浣嗗綋瀹冨嚭鐜版椂锛屽叴濂嬫劅鏋佸己
+
+杩欑"鍑犱箮涓嶅彲鑳戒絾涓囦竴鍛?鐨勬湡寰呮劅璁╃帺瀹舵効鎰忓弽澶嶅紑灞€
+姣忔鍗囩骇閮芥姳鐫€涓€涓?杩欐浼氫笉浼氬嚭閭ｄ釜姝﹀櫒"鐨勫够鎯?```
+
+#### 6.1.3 娓告垙涓殑 Rarity 1 姝﹀櫒
+
+| 姝﹀櫒 | Rarity | 瑙ｉ攣鏂瑰紡 | 鏁堟灉姒傝堪 |
+|------|--------|---------|---------|
+| Victory Sword | 1 | 鏀堕泦 30 涓仐鐗?| 瓒呭ぇ鑼冨洿鐨勫墤姘旀柀锛屾瀬楂樹激瀹?|
+| Sole Solution | 1 | Victory Sword 杩涘寲 | 鍏ㄥ睆娓呴櫎 + 鎸佺画浼ゅ |
+| (閮ㄥ垎 DLC 闅愯棌姝﹀櫒) | 1 | 鐗瑰畾鏉′欢 | 鍚勬湁鐙壒鏈哄埗 |
+
+#### 6.1.4 璁捐鍚ず
+
+- **瓒呬綆姒傜巼鍒涢€犺蹇嗗嘲鍊?*锛氱帺瀹朵笉浼氳寰楅偅 60 娆℃嬁浜嗕粈涔堟櫘閫氭鍣紝浣嗕細姘歌繙璁板緱
+
+- [Vampire Survivors Wiki 鈥?Level Up](https://vampire.survivors.wiki/w/Level_up)
+- [Vampire Survivors Wiki 鈥?Luck](https://vampire.survivors.wiki/w/Luck)
+- [Vampire Survivors Wiki 鈥?Growth](https://vampire.survivors.wiki/w/Growth)
+- [Vampire Survivors Wiki 鈥?Limit Break](https://vampire.survivors.wiki/w/Limit_Break)
+- [Vampire Survivors Wiki 鈥?PowerUps](https://vampire.survivors.wiki/w/PowerUps)
+- [Vampire Survivors Wiki 鈥?Experience Gem](https://vampire.survivors.wiki/w/Experience_Gem)

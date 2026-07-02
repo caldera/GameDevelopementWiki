@@ -5,6 +5,12 @@
 
 ---
 
+### v0.11.0 — 修复编码乱码 + 拆分上篇文档（2026-07-02）
+- 修复 `vampire-survivors-roguelite-decision.md` UTF-8 编码乱码问题（PowerShell Set-Content 导致的编码损坏）
+- 该文档已在 v0.10.0 拆分为上下两篇（40KB→23KB+14KB）
+- 新增 `vampire-survivors-roguelite-decision-part2.md`：Key Takeaways 六条深度分析独立成文
+- VERSION 0.10.0 → 0.11.0
+
 ### v0.10.0 — 升级决策树重写 + 六个部分深入分析（2026-07-02）
 - 重写 `vampire-survivors-roguelite-decision.md`：从 ~5,000 字扩展到 ~11,400 字
   - 整体流程：精确到每级的 XP 曲线、Growth 门槛爆发机制完整解读
