@@ -1,10 +1,10 @@
 ---
-title: Vampire Survivors — 武器进化系统深度分析
+title: Vampire Survivors — 进化四种类型深入分析
 sidebar_position: 3
 tags: [game-design, roguelite, survivor-like, weapons, progression]
 ---
 
-# Vampire Survivors — 武器进化系统深度分析
+# Vampire Survivors — 进化四种类型深入分析
 
 > **关联文档**：[Vampire Survivors 玩法拆解与设计分析](./vampire-survivors)
 
@@ -12,266 +12,337 @@ tags: [game-design, roguelite, survivor-like, weapons, progression]
 
 ## 概述
 
-武器进化（Evolution）是 Vampire Survivors 的**灵魂机制**，也是其作为品类开创者最核心的设计创新。它将"养成等待"与"质变爽爆"打包成一个可重复的反馈循环，驱动了每局 30 分钟的游玩节奏。
+武器进化（Evolution）在 Wiki 中被明确定义为一个总称，其下包含四种不同的子类型：**Evolution（标准进化）**、**Union（融合）**、**Gift（赠与）**、**Morph（形态变化）**。每种类型的触发条件、槽位消耗、奖励形式完全不同。本文用 Wiki 的精确数据逐一深挖。
 
 ---
 
-## 一、进化的四种类型
+## 类型 A：标准进化（Evolution）
 
-Wiki 将"进化"定义为一个总称，其下分为四种不同的子类型：
-
-### 类型 A：标准进化（Evolution）
-
-**基础武器 Lv.8 + 对应被动道具 Lv.5 + 宝箱** → 基础武器消失，进化武器出现
+### 基础公式
 
 ```
-例：鞭子 (Whip) Lv.8 + 空心 (Hollow Heart) Lv.5 + 宝箱
-→ 鞭子消失 → 血鞭 (Bloody Tear) 出现
+基础武器 Lv.8  +  对应被动道具 Lv.5  +  进化宝箱
+→  基础武器消失，进化武器出现
 ```
 
-- 这是最常见的形式，也是最初的设计
-- 被动道具在进化后**不会消失**（少数例外）
-- 基础武器被移除 → 腾出一个武器槽（不，实际上没腾出——武器槽被进化武器占用）
+典型示例：**Whip（鞭子）+ Hollow Heart（空心） → Bloody Tear（血鞭）**
 
-### 类型 B：融合（Union）
+### 完整进化对照表（基础游戏）
 
-**两种基础武器各满级 + 宝箱** → 两种武器消失，融合武器出现
+| 基础武器 | 进化催化剂 | 进化武器 | 进化效果变化 |
+|---------|-----------|---------|-------------|
+| Whip | Hollow Heart | Bloody Tear | 鞭击范围 +40%，击中回血 |
+| Magic Wand | Empty Tome | Holy Wand | 自动追踪 + 无冷却（冷却 = 0） |
+| Knife | Armor | Thousand Edge | 投射物大量增加，变成弹幕 |
+| Axe | Candelabrador | Death Spiral | 全方向飞出回旋镖弹幕 |
+| Cross | Clover | Heaven Sword | 从天而降的剑雨，范围极大 |
+| King Bible | Spellbinder | Unholy Vespers | 从"环绕几秒消失"变成**永久环绕** |
+| Fire Wand | Spinach | Hellfire | 巨大火柱，高伤害 AOE |
+| Garlic | Pummarola | Soul Eater | 回血免疫，伤害更高 |
+| Santa Water | Attractorb | La Borra | 从单体放置变成**持续存在的毒池** |
+| Runetracer | Bracer | NO FUTURE | 反弹更久，弹道更快 |
+| Lightning Ring | Duplicator | Thunder Loop | 自动全屏范围闪电 |
+| Pentagram | Stone Mask | Gorgeous Moon | 全屏清 + 生成大量经验宝石 |
+| Gatti Amari | Stone Mask | Vicious Hunger | 猫召唤物更多 + 掉落金币 |
+| Song of Mana | Skull O'Maniac | Mannajja | 音波范围增大 + 减速效果 |
+| Shadow Pinion | Shadow Pinion (自身) | Valkyrie Turner | 弹射触发双倍伤害 |
+| Clock Lancet | Silver Ring + Gold Ring | Infinite Corridor | 冻结光环 + 百分比伤害 |
+| Laurel | Metaglio Left + Metaglio Right | Crimson Shroud | 无限护盾 + 反弹伤害 |
+| Bone | (Chaos Malachite 遗物) | Anima of Mortaccio | 见 Morph 类型 |
+| Cherry Bomb | Torrona's Box | Carozza! | 爆炸范围 + 减速 |
+| Carréllo | Torrona's Box | Profusione D'Amore | 弹幕扩散范围增大 |
+| Celestial Dusting | Torrona's Box | — | 粉尘范围扩大 |
+| Flames of Misspell | Torrona's Box + Spellbinder | Ashes of Muspell | AOE 持续伤害增强 |
+| Night Sword | Pummarola + Metalaglio L+R | Muramasa | 吸血剑 + 极高回复 |
+| Victory Sword | Torrona's Box + Spellbinder | Sole Solution | 超大剑气 |
+| SpellString | (见 Union) | — | 三合一融合武器 |
+| Espada Ropera | Parm Aegis | Dress Sword | 攻防一体 |
 
-```
-例：Peachone Lv.8 + Ebony Wings Lv.8 + 宝箱
-→ 两者消失 → Vandalier 出现
+### 被动道具是否会消耗？
 
-即：两个武器 → 融合成一个 → 腾出一个武器槽
-```
+| 进化类型 | 被动道具状态 |
+|---------|-----------|
+| 标准进化（大部分） | 被动道具**保留不变** |
+| 关卡特殊道具（银戒/金戒/Metaglio） | **消耗**，从槽位移除 |
+| Torrona's Box 系列 | **消耗** |
+| 需高阶进化的（Infinite Corridor/Crimson Shroud） | **消耗所有相关被动** |
 
-- 融合是 VS 中少数能让玩家**真正多出一个武器槽**的途径
-- 需要两种武器都满级，条件比标准进化更苛刻
-- 第一把三武器融合：SpellStrom（Ode to Castlevania DLC）
+**关键设计决策**：
 
-### 类型 C：赠与（Gift）
+大多数进化中被动道具保留 → 你可以继续享受属性加成 + 无需重新找被动
 
-**满足条件后获得额外武器/道具，基础武器保留**
+少数特殊进化中被动道具消耗 → 因为这些被动道具（银戒/金戒）是专门为了进化存在的，没有保留价值
 
-- 基础武器不会被移除
-- 赠品是额外的，不占原有武器槽
-- 如 Super Candybox II Turbo：可从特定宝箱中获得
+Torrona's Box 消耗 → 因为它太强（+25% 所有属性），必须付出代价
 
-### 类型 D：形态变化（Morph）
+### Bracelet 系列：不需要被动道具的进化
 
-**角色达到特定等级 + 持有对应遗物** → 自动进化初始武器
+Bracelet Lv.8 → 不需要被动道具 → 进化成 Bi-Bracelet（更高级别）
 
-```
-Mortaccio Lv.80 + Chaos Malachite → 自动变成 Anima of Mortaccio
-```
+Bi-Bracelet Lv.8 → 不需要被动道具 → 进化成 Tri-Bracelet（最高级别）
 
-- 不需要宝箱触发
-- 仅在四个特定角色上存在：Mortaccio、Yatta Cavallo、Bianca Ramba、O'Sole Meeo
-- 这是角色独有机制，不是通用进化路线
+这类武器的进化不需要被动道具，只需要武器满级 + 宝箱。条件最宽松，但进化效果也相对温和。
+
+### 多重进化宝箱
+
+大多数地图一次只能进化一个武器。但存在特殊的**多重进化宝箱**：
+
+| 地图/来源 | 最大同时进化数 |
+|----------|-------------|
+| Il Molise（9/11/13 分钟非 Arcana 宝箱） | 5 |
+| Dairy Plant（10 分钟宝箱） | 3 |
+| Gallo Tower（10 分钟宝箱） | 3 |
+| Cappella Magna（10 分钟宝箱） | 3 |
+| Giant Enemy Crab 掉落 | 5 |
+| Bat Country / Tiny Bridge（所有进化宝箱） | 全部多重 |
+
+打开一个宝箱 → 3-5 个武器同时进化 → 满屏特效爆发，这是游戏中最爽的瞬间。
 
 ---
 
-## 二、进化的触发条件
+## 类型 B：融合（Union）
 
-### 2.1 基础条件
+### 定义
 
 ```
-if (weapon.level == maxLevel) &&
-   (passiveItem.level == maxLevel || passiveItem not required) &&
-   (chest.hasEvolutionCapability)
-then → evolution()
+武器 A Lv.8  +  武器 B Lv.8（有时还需要被动道具）+ 宝箱
+→  两种基础武器消失，融合武器出现
+→  腾出一个武器槽
 ```
 
-### 2.2 宝箱的进化能力
+融合是 VS 中少数能让玩家**真正多出一个武器槽**的途径。
 
-不是所有宝箱都能触发进化。Wiki 中明确：
+### 现存的所有融合武器
 
-| 宝箱类型 | 进化能力 | 掉落条件 |
-|---------|---------|---------|
-| 青铜宝箱 (Bronze) | ❌ 不能进化 | 10 分钟前的 Boss |
-| 白银宝箱 (Silver) | ✅ 可进化 | 10 分钟后的 Boss |
-| 黄金宝箱 (Golden) | ✅ 可进化 + 提供新武器 | 特殊条件 |
-| 紫色宝箱 (Arcana) | 特定情况可进化 | 11:00 / 21:00 的 Arcana Boss |
+| 编号 | 融合武器 | 基础武器 A | 基础武器 B | 额外条件 |
+|------|---------|-----------|-----------|---------|
+| 1 | **Vandalier** | Peachone Lv.8 | Ebony Wings Lv.8 | 无 |
+| 2 | **Phieraggi** | Phiera Der Tuphello Lv.8 | Eight The Sparrow Lv.8 | 无 |
+| 3 | **Fuwalafuwaloo** | Vento Sacro Lv.8 | Bloody Tear Lv.8 | 无 |
+| 4 | **SpellStrom** | SpellString Lv.6 | SpellStream Lv.6 + SpellStrike Lv.6 | ⚠ 三武器融合 |
 
-**关键时序设计**：
-- 大部分地图的进化宝箱在 **10 分钟后**才出现
-- 这意味着玩家在前 10 分钟只能"养成"，不能"进化"
-- 10 分钟恰好是敌人密度开始快速上升的时刻 → **进化在玩家最需要的时候到来**
+### 融合武器详解
 
-**例外地图**：
+#### Vandalier（双鸟合一）
 
-| 地图 | 最早进化时间 |
+**属性数据**（来自 Wiki）：
+
+| 属性 | 数值 |
+|------|------|
+| 伤害 | 28 (-2 相比单独鸟) |
+| Amount | 20 (-2) |
+| 冷却 | 1.0秒 (+0.5) |
+| 范围 | 2.2 |
+| 持续时间 | 4.0秒 |
+| Pool Limit | 100 (+40) |
+
+**特性**：
+- 两只彩鸟绕着玩家飞行，在两个圆形轨道上投弹
+- 一个顺时钟、一个逆时钟
+- 有 8 个等级，每个等级增加范围或减少冷却
+- 当 Vandalier 达到 Lv.5 后，冷却比单独 Peachone 或 Ebony Wings 满级更低，**进化收益超过两者的总和**
+- **融合后的效果**：
+  - 两个武器合并成一个 → 腾出一个武器槽
+  - 保留了两只鸟的攻击模式（顺+逆时钟）
+  - 损失了少量基础伤害（-2）和投射物量（-2）
+  - 但获得了更大的范围、更多的池空间
+
+#### Fuwalafuwaloo（Vento Sacro + Bloody Tear）
+
+Vento Sacro（风元素） + Bloody Tear（血鞭） 融合 → Fuwalafuwaloo
+
+- 这是唯一一个需要**进化后的武器**作为融合材料的融合
+- 必须先进化出 Bloody Tear，再拿 Vento Sacro，然后两者融合
+- 融合效果：龙卷风带群控，同时吸血
+
+#### SpellStrom（三武器融合）
+
+**来自 Tides of the Foscari DLC**（Wiki 标注 DLC 专属）
+
+```
+SpellString Lv.6 + SpellStream Lv.6 + SpellStrike Lv.6 → SpellStrom
+```
+
+这是第一把**三武器融合**武器。**仅需 Lv.6 而非 Lv.8**（因为三个武器凑满 6+6+6=18 级已经付出了足够代价）。
+
+**属性**：
+
+| 属性 | 数值 |
+|------|------|
+| 伤害 | 15 |
+| 冷却 | 3.9秒 |
+| 持续时间 | 0.3秒（单个） |
+| 特殊效果 | Singularity（奇点爆发） |
+
+**核心机制**：
+- SpellStrom 保留 SpellString、SpellStream、SpellStrike 的全部效果
+- 三个效果同时出现：蓝色粒子 + 两个重力井环绕角色
+- 每隔一段时间触发 **Singularity**（奇点）：
+  - 两个重力井螺旋相撞
+  - 对全屏敌人造成伤害
+  - Singularity 伤害计算公式：`(基础伤害 + 累计持续时间 + 弹道速度 + 范围) × 投射物数量`
+  - 基础冷却 40 秒（20 秒不可减少 + 20 秒可减少到 2 秒）
+  - 每次触发 Singularity → 伤害 +5（无限叠加）
+- 与大多数武器不同，SpellStrom **保留 Limit Break 的属性加成**
+
+### 融合时机的战略意义
+
+```
+融合前：武器 [Peachone][Ebony Wings][C][D][E][F] → 满槽
+融合后：武器 [Vandalier][C][D][E][F][ ] → 空出一个槽
+
+如果你在满 6 槽后才融合：
+→ 空出一槽
+→ 可以再拿一个新武器
+→ 相当于一局能带 7 个武器（间接突破上限）
+```
+
+---
+
+## 类型 C：赠与（Gift）
+
+### 定义
+
+```
+满足条件 → 获得额外武器/道具
+→ 基础武器保留（不移除）
+→ 赠品是额外的，不占槽位
+```
+
+### Super Candybox II Turbo
+
+这是最典型的 Gift。来自 Wiki 的精确数据：
+
+| 属性 | 数值 |
+|------|------|
+| ID | CANDYBOX2 |
+| 类型 | Gift |
+| 稀有度 | 0.1（极其稀有） |
+| 伤害 | — |
+| 范围 | 100% |
+| 冷却 | 0秒 |
+
+**获取条件**：
+1. 所有已装备武器 + 被动道具全部满级
+2. 本局已经获得过 Candybox（可以复制任何武器的特殊武器）
+3. 打开宝箱 → 宝箱内所有奖励变成 Coin Bag（因为已满级）
+4. Super Candybox II Turbo 以极低概率（0.1 × Luck）替代一个 Coin Bag
+5. 5 级宝箱（5 次奖励）**保证**在满足条件后触发一次
+
+**效果**：
+- 打开后列出**大部分已解锁的进化武器**让你挑选
+- 你可以得到一个本局还没拿到的进化武器
+- 不占用武器槽（它是"赠予"的额外武器）
+
+### 其他 Gift 形式的进化
+
+Gift 形式的武器在游戏中很少，Super Candybox II Turbo 是最主要的例子。其他形式包括：
+
+- 某些特殊关卡道具：玩家触碰后获得不占槽的武器
+- 某些角色的初始 Arcana 效果（Avatar Infernas 自带 Heart of Fire）
+
+**Gift 的设计意图**：
+- 打破了 6 槽限制（赠品不占槽）
+- 但获取条件极其苛刻（全部满级 + 极低概率）
+- 所以它是"顶端玩家"的奖励，不是常规玩法
+
+---
+
+## 类型 D：形态变化（Morph）
+
+### 定义
+
+```
+角色达到特定等级 + 持有对应遗物（Relic）
+→ 角色自动变化形态
+→ 初始武器自动进化（不需要宝箱）
+→ 角色属性提升
+```
+
+Morph 是**角色独有**的机制，不是通用进化路线。
+
+### 四个 Morph 角色
+
+| 角色 | 初始武器 | 遗物需求 | 等级需求 | 进化后果 |
+|------|---------|---------|---------|---------|
+| **Mortaccio** | Bone | Chaos Malachite | Lv.80 → Anima of Mortaccio | +2 Armor, +1 Amount, +100 Max HP |
+| **Yatta Cavallo** | Cherry Bomb | Chaos Malachite | Lv.80 → Yatta Daikarin | 同上 |
+| **Bianca Ramba** | Celestial Dusting | Chaos Malachite | Lv.80 → Profusione D'Amore | 同上 |
+| **O'Sole Meeo** | La Robba | Chaos Malachite | Lv.80 → Carozza! | 同上 |
+
+注意到 **Mortaccio、Cavallo、Ramba、O'Sole** 四个角色共享相同的被动加成（每 20 级 +1 Amount，最多 +3），而且属性完全一致，唯一的区别就是初始武器。
+
+### Mortaccio Morph 完整数据（来自 Wiki）
+
+**Morph 前**（Mortaccio 默认）：
+
+| 等级 | Amount 加成 |
 |------|-----------|
-| Mad Forest | 1:00（Glowing Bat） |
-| Dairy Plant | 全程可进化 |
-| Il Molise | 全程可进化 |
-| Cappella Magna | 全程可进化 |
-| Lake Foscari | 2:00（Foscaritrice） |
+| Lv.1-19 | 0 |
+| Lv.20-39 | +1 |
+| Lv.40-59 | +2 |
+| Lv.60+ | +3 |
 
-### 2.3 多重进化
+**获得 Chaos Malachite 后，达到 Lv.80**：
 
-通常情况下，一个宝箱只能进化一个武器。但存在多重进化宝箱：
+→ 角色变成 Goshadokuro（骸骨巨鬼形态）
+→ Bone 自动进化成 **Anima of Mortaccio**
+→ 获得 +2 Armor
+→ 获得 +1 Amount（相当于总共 +4）
+→ 获得 +100 Max HP
 
-- Il Molise（9/11/13 分钟的非 Arcana 宝箱）— 最多 5 个进化
-- Dairy Plant / Gallo Tower / Cappella Magna 的 10 分钟宝箱 — 最多 3 个
-- Bat Country / Tiny Bridge — 所有进化宝箱都是多重的
-- Giant Enemy Crab 掉落的宝箱 — 最多 5 个进化
+**关键设计点**：
 
-多重进化是游戏中**最爽的瞬间**之一——打开一个宝箱，3-5 个武器同时进化，满屏特效爆发。
+1. **不需要宝箱** — 这是唯一不需要宝箱的"进化"方式
+2. **自动触发** — 达到等级 + 持有遗物 → 瞬间完成，无需玩家额外操作
+3. **角色也变化** — 不只是武器变化，角色外形和属性都变了
+4. **可以封印** — 从 v1.4.200 开始，玩家可以在菜单中 Seal（封印）Chaos Malachite，阻止 Morph 发生
 
----
+### 为什么 Morph 不需要宝箱？
 
-## 三、进化的设计理念
+从设计角度分析：
 
-### 3.1 "养成 → 质变"的反馈循环
+- 宝箱是"标准进化"的仪式感容器
+- Morph 是角色自身的成长，与宝箱无关
+- 也符合角色设定：Mortaccio 达到 Lv.80 时"觉醒"为强大形态
+- 这给了角色一个独特的长期目标（Lv.80 在一局中需要约 20-25 分钟才能达到）
 
-```
-[0-5 min]  收集基础武器 → 通过升级逐步强化
-[5-10 min]  武器接近满级 → 寻找对应被动道具
-[10 min+]   拿到被动道具 → 等待宝箱掉落
-[宝箱时刻]  ！！！进化 ！！！ → 质变
-[进化后]    横扫一切（短暂无敌感）→ 等待下一波压力
-                               ↑
-                         循环回到等待
-```
+### 与其他进化类型的对比
 
-这个循环每局重复 4-6 次（取决于配装），每次进化的"质变"都是新一轮情绪曲线的高潮。
-
-### 3.2 进化 = 不可逆的替换
-
-进化不是简单的数值叠加，而是**基础武器被替换**。这意味着：
-
-- 失去基础武器的一切效果 → 不能倒退
-- 进化武器的冷却从零开始 → 有短暂的"冷却空窗期"（对慢冷却武器尤其明显）
-- 进化后无法再升级基础武器 → 不可逆
-
-**设计意图**：不可逆性增加了决策的严肃感。"我到底要不要进化这个武器？"虽然大多数情况下进化的收益远大于不进化，但这个"不可逆"的心理压力让进化时刻更有仪式感。
-
-### 3.3 进化让被动道具变成策略节点
-
-因为大多数进化需要特定的被动道具（如 Attractorb、Empty Tome、Wings），被动道具不再仅仅是"数值加成"，而是变成了**通往更强武器的钥匙**。
-
-```
-没有进化系统时：
-被动道具 = 属性加成（无聊但有用）
-
-有进化系统时：
-被动道具 = 属性加成 + 武器进化前置条件（双重价值）
-```
-
-这个设计巧妙地提升了被动道具的战略地位，让"选被动道具"的决策变得更有深度。
-
-### 3.4 进化打乱"满级后无事可做"的问题
-
-没有进化系统的传统 Roguelite 往往在中期会遇到"我已经满级了，没什么可升级了"的空窗期。Vampire Survivors 用进化系统解决了这个问题：
-
-- 进化前：升级基础武器（寻找被动道具）
-- 进化瞬间：基础重置为进化武器
-- 进化后：进化武器升级（寻找下一个进化方案）
-
-**整局游戏的升级节奏**：升级 → 满级 → 进化 → 重新升级 → 再次满级 → 再次进化 → Limit Break
+| 维度 | Evolution | Union | Gift | Morph |
+|------|-----------|-------|------|-------|
+| 基础武器 | 消失 | 消失（两个） | 保留 | 消失 |
+| 槽位变化 | 不变（进化武器占原槽） | **腾出一槽** | 无变化（额外武器） | 不变 |
+| 触发条件 | 被动 Lv.5 + 宝箱 | 两个武器各 Lv.8 + 宝箱 | 全部满级 + 稀有宝箱 | 角色 Lv.80 + 遗物 |
+| 宝箱需求 | ✅ 必须 | ✅ 必须 | ✅ 必须 | ❌ **不需要** |
+| 形式 | 基础 + 被动 → 进化 | 武器 + 武器 → 融合 | 额外获得 | 角色变身 |
+| 唯一性 | 通用 | 少数组合 | 极少数 | 仅 4 个角色 |
 
 ---
 
-## 四、典型进化路线分析
+## 四个进化类型的互补设计
 
-### 4.1 天胡路线：圣水 (Santa Water) → La Borra
+| 类型 | 设计目的 |
+|------|---------|
+| **Evolution (A)** | 核心循环：被动道具变成进化催化剂，制造"养等 → 质变" |
+| **Union (B)** | 高回报融合：两个武器换一个 + 腾槽，奖励高风险配置 |
+| **Gift (C)** | 突破极限：满配后的额外奖励，给顶端玩家更多的追求 |
+| **Morph (D)** | 角色独有：每个角色有自己的成长弧线，不止是初始武器区别 |
 
-```
-Santa Water Lv.8 + Attractorb Lv.5 → La Borra
-```
-
-进化效果：
-- 从"一瓶扔出去的圣水"变成"持续存在的 AOE 毒池"
-- 范围极大，持续伤害高
-- 配合冷却缩减可以铺满全屏
-
-**为什么强**：从单体控场变成全屏区域封锁，完全改变了武器性质。
-
-### 4.2 防御路线：圣书 (King Bible) → Unholy Vespers
-
-```
-King Bible Lv.8 + Spellbinder Lv.5 → Unholy Vespers
-```
-
-进化效果：
-- 从"环绕转几圈消失"变成"永久环绕"
-- 提供持续的全方位护身效果
-
-**为什么重要**：这是游戏中最强的近身防御武器。进化后变成永久环绕 → 玩家靠近敌人反而安全。
-
-### 4.3 极致输出：小刀 (Knife) → Thousand Edge
-
-```
-Knife Lv.8 + Armor Lv.5 → Thousand Edge
-```
-
-进化效果：
-- 投掷物数量暴增
-- 从单发变成密集弹幕
-- 配合 Amount 加成可以打出暴雨般的攻击
-
-**设计对比**：进化前是"精确打击"型武器，进化后变成"弹幕覆盖"型武器，性质变化极大。
-
-### 4.4 特殊进化：Infinite Corridor
-
-```
-Clock Lancet Lv.8 + Silver Ring Lv.5 + Gold Ring Lv.5 → Infinite Corridor
-```
-
-- 这是需要**两个被动道具**的进化
-- 效果：冻结 + 斩杀（生成冰冻光环，对敌人造成最大生命百分比的伤害）
-- 可以用来对付 Boss 和最终的死神
-
-**设计亮点**：付出更高的条件（两个被动道具），获得更强的效果（可对 Boss 生效的百分比伤害）。
+这四个类型覆盖了从基础玩法到顶端挑战的不同阶段：
+- A：每局 4-6 次 — 核心体验
+- B：少数局 1 次 — 特殊配装奖励
+- C：极少数局 1 次 — 顶端玩家奖励
+- D：特定角色必出 — 角色专属体验
 
 ---
 
-## 五、进化系统的平衡设计
-
-### 5.1 时间锁
-
-进化宝箱通常要到 10 分钟后才出现 → 防止玩家过早获得强力武器 → 保证前期的生存压力
-
-### 5.2 冷却重置
-
-进化后冷却重置 → 有短暂的输出空窗期 → 进化不是无敌的瞬间，需要玩家在进化后注意走位
-
-### 5.3 不可逆
-
-进化后不可回到基础武器 → 鼓励玩家规划进化路线 → 提高决策的深度
-
-### 5.4 进化 ≠ 无敌
-
-进化武器确实更强，但不会让游戏变得太简单：
-- 进化后敌人也在持续变强
-- 部分进化武器的弹道模式需要适应（如 La Borra 是地面效果，不适合空中敌人）
-
-### 5.5 进化条件分层
-
-| 武器类型 | 进化条件 | 难度 |
-|---------|---------|------|
-| 标准武器 | Lv.8 + 1 个被动 | 中等 |
-| 融合武器 | 2 个武器各 Lv.8 | 高（占俩武器槽） |
-| 特殊武器（Infinite Corridor） | Lv.8 + 2 个被动 | 很高 |
-| Morph | 角色等级 + 遗物 | 中长期规划 |
-
-条件越苛刻的进化 → 进化后越强 → 投入产出匹配。
-
----
-
-## 六、Key Takeaways
-
-1. **进化是游戏的"高潮触发器"**：它不是让玩家慢慢变强，而是阶段性提供"质变"时刻
-2. **被动道具的双重价值**：属性加成 + 进化催化剂 → 提升了所有道具的战略意义
-3. **进化时序就是游戏节奏**：10 分钟（第一次进化）→ 15 分钟（核心成型）→ 20 分钟（完全体）
-4. **不可逆性增加决策分量**：虽然大多数进化是纯收益，但设计上保留了"不可后悔"的紧张感
-5. **进化是品类定义者**：这个机制后来被大量 Survivor-like 游戏模仿，成为了品类标志
-
----
-
-## 七、数据来源
+## 数据来源
 
 - [Vampire Survivors Wiki — Evolution](https://vampire.survivors.wiki/w/Evolution)
-- [Vampire Survivors Wiki — Treasure Chest](https://vampire.survivors.wiki/w/Treasure_Chest)
-- [Vampire Survivors Wiki — Limit Break](https://vampire.survivors.wiki/w/Limit_Break)
+- [Vampire Survivors Wiki — Combos](https://vampire.survivors.wiki/w/Combos)
+- [Vampire Survivors Wiki — Super Candybox II Turbo](https://vampire.survivors.wiki/w/Super_Candybox_II_Turbo)
+- [Vampire Survivors Wiki — Vandalier](https://vampire.survivors.wiki/w/Vandalier)
+- [Vampire Survivors Wiki — SpellStrom](https://vampire.survivors.wiki/w/SpellStrom)
+- [Vampire Survivors Wiki — Mortaccio](https://vampire.survivors.wiki/w/Mortaccio)
 - [Vampire Survivors Wiki — Weapons](https://vampire.survivors.wiki/w/Weapons)
