@@ -5,6 +5,26 @@
 
 ---
 
+### v0.8.0 — 新增游戏设计分析板块（2026-07-02）
+- 新增 `docs/game-design-analysis/` 板块
+- 新增 `docs/game-design-analysis/index.md`：板块首页
+- 新增 `docs/game-design-analysis/vampire-survivors.md`：Vampire Survivors 玩法拆解与设计分析（武器进化系统、极简操作、Roguelite 升级决策、时间压力曲线等）
+- 新增 `docs/game-design-analysis/vampire-survivors-minimal-controls.md`：极简操作 + 自动攻击深度分析（认知负荷分配、心流触发、减法设计哲学、底层系统详解）
+- 新增 `docs/game-design-analysis/vampire-survivors-evolution.md`：武器进化系统深度分析（四种进化类型、触发条件、多重进化、平衡设计）
+- 新增 `docs/game-design-analysis/vampire-survivors-slot-strategy.md`：6 武器槽与策略搭配深度分析（角色分工、决策模型、经典配装、槽位合理性）
+- 新增 `docs/game-design-analysis/vampire-survivors-roguelite-decision.md`：Roguelite 升级决策树深度分析（权重系统、拥有物品偏向、Banish/Reroll/Skip、满级池子净化）
+- 新增 `docs/game-design-analysis/vampire-survivors-characters.md`：角色差异化深度分析（设计模板、207 角色分工、组合多样性）
+- 新增 `docs/game-design-analysis/vampire-survivors-time-curve.md`：时间压力曲线深度分析（四阶段节奏、核心事件时间线、压力与成长同步）
+- 新增 `docs/game-design-analysis/vampire-survivors-chest.md`：宝箱与仪式感深度分析（五种宝箱类型、Luck 品质联动、音效系统、走位决策）
+- VERSION 0.7.2 → 0.8.0
+
+### v0.7.2 — UE6 路线图分析：蓝图去向（2026-06-23）
+- 新增 `docs/dev-notes/engine-roadmap.md`：UE6 EA 时间线、蓝图弃用真相、Verse/Visual Verse 替代方案、社区反应分析、开发者应对策略
+
+### v0.7.1 — UI 系统 Slate & UMG 深度分析（2026-06-23）
+- 新增 `docs/dev-notes/ue5-8-analysis/ui-system.md`：Slate 三层架构、TSlateAttribute 属性系统、FWidgetProxy 失效率缓存、减少蓝图依赖的 6 大策略及性能对比
+- index.md 新增第 17 章、更新模块描述和源码路径
+
 ### v0.7.0 — crew-cli v1.00204 循环读取修复分析（2026-06-23）
 - 新增 `docs/dev-notes/crew-cli-analysis/prompt-improvement.md` C 节：循环读取修复的根因分析与修复方案
   - validateBash 漏网：powershell -Command "Get-Content"、type "file.h" 引号路径

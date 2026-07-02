@@ -58,9 +58,9 @@ Engine/Source/
 | Online | 229 | 在线子系统 |
 | MovieScene | 204 | 过场动画 |
 | Net | 197 | 网络/复制系统 |
-| Slate | 196 | UI 框架 |
+| Slate | 196 | 高阶 UI 组件 |
 | AIModule | 181 | AI 模块 |
-| UMG | 146 | UI 编辑器 |
+| UMG | 146 | 蓝图 UI 系统 |
 
 ---
 
@@ -106,3 +106,6 @@ Engine/Source/
 | NNE | `Runtime/NNE/Public/` |
 | Mass | `Runtime/Mass/MassCore/Public/Mass/` |
 | Chaos | `Runtime/Experimental/Chaos/` |
+| Slate Core | `Runtime/SlateCore/Public/` |
+| Slate | `Runtime/Slate/Public/` |
+| UMG | `Runtime/UMG/Public/` |
