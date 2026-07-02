@@ -5,6 +5,14 @@
 
 ---
 
+### v0.9.0 — 进化篇重写 + 四个进化类型深入分析（2026-07-02）
+- 重写 `vampire-survivors-evolution.md`：从 ~5,300 字扩展到 ~8,600 字
+  - Evolution：完整 26 行进化对照表、被动道具消耗规则、Bracelet 特殊进化、多重进化宝箱
+  - Union：Vandalier/Phieraggi/Fuwalafuwaloo/SpellStrom 精确属性数据与 Singularity 伤害公式
+  - Gift：Super Candybox II Turbo 获取条件、稀有度 0.1、Luck 倍率
+  - Morph：4 角色精确等级表、无需宝箱的设计逻辑
+- VERSION 0.8.0 → 0.9.0
+
 ### v0.8.0 — 新增游戏设计分析板块（2026-07-02）
 - 新增 `docs/game-design-analysis/` 板块
 - 新增 `docs/game-design-analysis/index.md`：板块首页
